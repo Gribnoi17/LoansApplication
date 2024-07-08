@@ -1,0 +1,15 @@
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build-env
+WORKDIR /src
+
+COPY src/Loans.Application.Migrations/ Loans.Application.Migrations/
+
+WORKDIR /src/Loans.Application.Migrations
+RUN dotnet restore
+RUN dotnet publish -c Release -o out
+
+FROM mcr.microsoft.com/dotnet/aspnet:7.0
+WORKDIR /src
+
+COPY --from=build-env /src/Loans.Application.Migrations/out .
+
+ENTRYPOINT ["dotnet", "Loans.Application.Migrations.dll"]

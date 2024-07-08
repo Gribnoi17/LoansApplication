@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\Loans.Application.AppServices.Contracts\Loans.Application.AppServices.Contracts.csproj" />
+      <ProjectReference Include="..\..\src\Loans.Application\Loans.Application.Host.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="KafkaFlow.Abstractions" Version="2.5.0" />
+      <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+      <PackageReference Include="NSubstitute" Version="5.0.0" />
+      <PackageReference Include="xunit" Version="2.6.3" />
+    </ItemGroup>
+
+</Project>
